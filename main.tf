@@ -15,7 +15,7 @@ EOT
 var.dns_domain, vm.ipv4_address,
 # local.generated_password[vm.vm_name],
 vm.vm_cpu, vm.vm_memory,
-var.domain_admin_user,
+local.domain_admin_user,
 var.ipv4_gateway
 )]
   # sensitive = true
