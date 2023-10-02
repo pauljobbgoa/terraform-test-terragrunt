@@ -32,6 +32,7 @@ resource "null_resource" "export_file" {
     command = <<EOT
     echo ${each.value.vm_name} >> C:\_LOCALdata\work\vmware\terragrunt\vm_to_ceate.txt
 EOT
+    interpreter = ["PowerShell", "-Command"]
   }
   
 }
