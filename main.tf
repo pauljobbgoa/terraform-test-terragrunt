@@ -19,7 +19,7 @@ local.domain_admin_user,
 #"domain_admin_user",
 var.ipv4_gateway
 )]
-  # sensitive = true
+  sensitive = true
 }
 
  # Local_admin_password = %s
