@@ -30,7 +30,7 @@ resource "null_resource" "export_file" {
   for_each  = { for vm in var.vm : vm.vm_name => vm }
   provisioner "local-exec" {    
     command = <<EOT
-    echo ${yamlencode(each.value.vm_name)} >> /home/paul/work/tf-vmware/terragrunt/vm_to_ceate.yaml
+    echo ${each.value.vm_name}  ${local.generated_password[each.value.vm_name]} ${var.vsphere_cluster}>> /home/paul/work/tf-vmware/terragrunt/vm_to_ceate.txt
 EOT
   }
   
