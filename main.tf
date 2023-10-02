@@ -30,9 +30,8 @@ resource "null_resource" "export_file" {
   for_each  = { for vm in var.vm : vm.vm_name => vm }
   provisioner "local-exec" {    
     command = <<EOT
-    echo ${each.value.vm_name} >> C:\_LOCALdata\work\vmware\terragrunt\vm_to_ceate.txt
+    echo ${each.value.vm_name} >> C:\_LOCALdata\work\vmware\terragrunt\${each.value.vm_name}.txt
 EOT
-    interpreter = ["PowerShell", "-Command"]
   }
   
 }
