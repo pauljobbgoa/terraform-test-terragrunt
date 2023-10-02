@@ -23,3 +23,15 @@ var.ipv4_gateway
 }
 
  # Local_admin_password = %s
+
+
+resource "null_resource" "export_file" {
+  triggers  =  { always_run = "${timestamp()}" }
+  for_each  = { for vm in var.vm : vm.vm_name => vm }
+  provisioner "local-exec" {    
+    command = <<EOT
+    echo ${each.value.vm_name} >> vm_to_ceate.txt
+EOT
+  }
+  
+}
