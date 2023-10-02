@@ -26,7 +26,7 @@ var.ipv4_gateway
 
 
 resource "null_resource" "export_file" {
-  triggers  =  { always_run = "${timestamp()}" }
+  # triggers  =  { always_run = "${timestamp()}" }
   for_each  = { for vm in var.vm : vm.vm_name => vm }
   provisioner "local-exec" {    
     command = <<EOT
